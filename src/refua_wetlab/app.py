@@ -337,7 +337,7 @@ def create_server(config: WetLabConfig) -> tuple[ThreadingHTTPServer, WetLabApp]
     app = WetLabApp(config)
 
     class WetLabHandler(BaseHTTPRequestHandler):
-        server_version = "RefuaWetLab/0.1"
+        server_version = "RefuaWetLab/0.7"
 
         def do_GET(self) -> None:  # noqa: N802
             parsed = urlparse(self.path)
@@ -381,7 +381,7 @@ def create_server(config: WetLabConfig) -> tuple[ThreadingHTTPServer, WetLabApp]
                         HTTPStatus.OK,
                         {
                             "service": "refua-wetlab",
-                            "version": "0.1.0",
+                            "version": "0.7.0",
                             "api_base": "/api",
                         },
                     )
