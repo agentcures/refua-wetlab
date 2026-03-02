@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "refua-wetlab"
-version = "0.7.0"
+version = "0.7.1"
 description = "Unified API layer for wet lab automation across multiple providers."
 readme = "README.md"
 requires-python = ">=3.11,<3.15"

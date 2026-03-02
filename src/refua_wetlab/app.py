@@ -381,7 +381,7 @@ def create_server(config: WetLabConfig) -> tuple[ThreadingHTTPServer, WetLabApp]
                         HTTPStatus.OK,
                         {
                             "service": "refua-wetlab",
-                            "version": "0.7.0",
+                            "version": "0.7.1",
                             "api_base": "/api",
                         },
                     )
