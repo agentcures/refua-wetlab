@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "refua-wetlab"
+version = "0.1.0"
+description = "Unified API layer for wet lab automation across multiple providers."
+readme = "README.md"
+requires-python = ">=3.11,<3.15"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "JJ Ben-Joseph", email = "jj@tensorspace.ai"}]
+keywords = ["refua", "wet lab", "automation", "laboratory", "api"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+dependencies = []
+
+[project.optional-dependencies]
+test = [
+  "pytest>=7.0",
+]
+dev = [
+  "pre-commit>=4.5.1",
+]
+
+[project.urls]
+Homepage = "https://agentcures.com/"
+Repository = "https://github.com/agentcures/refua"
+
+[project.scripts]
+refua-wetlab = "refua_wetlab.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
