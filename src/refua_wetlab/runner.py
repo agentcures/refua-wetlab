@@ -4,7 +4,8 @@ import inspect
 import queue
 import threading
 import time
-from typing import Any, Callable
+from collections.abc import Callable
+from typing import Any
 
 from refua_wetlab.storage import RunStore
 
@@ -141,7 +142,7 @@ class RunBackgroundRunner:
 
                 try:
                     result = _invoke_run_fn(fn, cancel_event=cancel_event)
-                except Exception as exc:  # noqa: BLE001
+                except Exception as exc:
                     if cancel_event.is_set() or self._store.is_cancel_requested(run_id):
                         self._store.set_cancelled(
                             run_id, "Cancelled by user during execution."

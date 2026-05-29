@@ -5,10 +5,11 @@ import re
 import sqlite3
 import threading
 import uuid
+from collections.abc import Mapping
 from contextlib import closing
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
-from typing import Any, Mapping
+from typing import Any
 
 PROJECT_STATUSES = frozenset({"planned", "active", "on_hold", "completed", "archived"})
 SAMPLE_STATUSES = frozenset(
@@ -1864,6 +1865,8 @@ class LmsStore:
                 created_at,
             ),
         )
+        if cursor.lastrowid is None:
+            raise LmsError("sample event insert did not return a row id")
         return int(cursor.lastrowid)
 
     @staticmethod
@@ -1892,6 +1895,8 @@ class LmsStore:
                 created_at,
             ),
         )
+        if cursor.lastrowid is None:
+            raise LmsError("inventory transaction insert did not return a row id")
         return int(cursor.lastrowid)
 
     @staticmethod

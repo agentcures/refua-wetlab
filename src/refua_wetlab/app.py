@@ -14,13 +14,13 @@ from refua_wetlab.engine import (
     UnknownProviderError,
 )
 from refua_wetlab.lineage import build_wetlab_lineage_event
-from refua_wetlab.lms_api import LmsApi
 from refua_wetlab.lms import (
     LmsConflictError,
     LmsNotFoundError,
     LmsStore,
     LmsValidationError,
 )
+from refua_wetlab.lms_api import LmsApi
 from refua_wetlab.models import ProtocolValidationError
 from refua_wetlab.runner import RunBackgroundRunner
 from refua_wetlab.storage import RunStore
@@ -163,7 +163,7 @@ class WetLabApp:
                 dry_run=dry_run,
                 metadata=metadata_payload,
             )
-        except Exception as exc:  # noqa: BLE001
+        except Exception as exc:
             self.store.set_failed(run_id, str(exc))
             raise
 
@@ -339,7 +339,7 @@ def create_server(config: WetLabConfig) -> tuple[ThreadingHTTPServer, WetLabApp]
     class WetLabHandler(BaseHTTPRequestHandler):
         server_version = "RefuaWetLab/0.7"
 
-        def do_GET(self) -> None:  # noqa: N802
+        def do_GET(self) -> None:
             parsed = urlparse(self.path)
             path = parsed.path
             query = parse_qs(parsed.query)
@@ -388,10 +388,10 @@ def create_server(config: WetLabConfig) -> tuple[ThreadingHTTPServer, WetLabApp]
                     return
 
                 raise NotFoundError(f"Unknown endpoint: {path}")
-            except Exception as exc:  # noqa: BLE001
+            except Exception as exc:
                 self._handle_exception(exc)
 
-        def do_POST(self) -> None:  # noqa: N802
+        def do_POST(self) -> None:
             parsed = urlparse(self.path)
             path = parsed.path
 
@@ -425,7 +425,7 @@ def create_server(config: WetLabConfig) -> tuple[ThreadingHTTPServer, WetLabApp]
                     return
 
                 raise NotFoundError(f"Unknown endpoint: {path}")
-            except Exception as exc:  # noqa: BLE001
+            except Exception as exc:
                 self._handle_exception(exc)
 
         def log_message(self, format: str, *args: object) -> None:

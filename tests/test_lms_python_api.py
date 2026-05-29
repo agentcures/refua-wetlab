@@ -10,11 +10,11 @@ SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from refua_wetlab.engine import UnifiedWetLabEngine
-from refua_wetlab.lms import LmsStore
-from refua_wetlab.lms_api import LmsApi
-from refua_wetlab.runner import RunBackgroundRunner
-from refua_wetlab.storage import RunStore
+from refua_wetlab.engine import UnifiedWetLabEngine  # noqa: E402
+from refua_wetlab.lms import LmsStore  # noqa: E402
+from refua_wetlab.lms_api import LmsApi  # noqa: E402
+from refua_wetlab.runner import RunBackgroundRunner  # noqa: E402
+from refua_wetlab.storage import RunStore  # noqa: E402
 
 
 def _sample_protocol(name: str = "python-api-screen") -> dict:

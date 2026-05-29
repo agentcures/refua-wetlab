@@ -15,8 +15,8 @@ SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from refua_wetlab.app import create_server
-from refua_wetlab.config import WetLabConfig
+from refua_wetlab.app import create_server  # noqa: E402
+from refua_wetlab.config import WetLabConfig  # noqa: E402
 
 
 def _sample_protocol() -> dict:
