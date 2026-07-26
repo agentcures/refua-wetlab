@@ -22,7 +22,6 @@ env/
 htmlcov/
 
 .DS_Store
-poetry.toml
 
 .refua-wetlab/
 *.db

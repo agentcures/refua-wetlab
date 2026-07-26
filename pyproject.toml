@@ -28,8 +28,14 @@ dependencies = []
 test = [
   "pytest>=7.0",
 ]
+
+[dependency-groups]
 dev = [
+  "pytest>=7.0",
   "pre-commit>=4.5.1",
+  "ruff>=0.6",
+  "mypy>=1.11",
+  "twine>=6.1",
 ]
 
 [project.urls]
